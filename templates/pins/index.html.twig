@@ -4,8 +4,8 @@
 
 {% block body %}
 	<h1>
-		{{ pins|length }}
-		Pins</h1>
+		{{ pluralize(pins|length, 'Pin') }}
+	</h1>
 	{% for pin in pins %}
 		<article>
 			<h2>{{ pin.title }}</h2>
