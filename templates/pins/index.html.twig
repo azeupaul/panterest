@@ -3,5 +3,13 @@
 {% block title 'Find all the best pins on earth!' %}
 
 {% block body %}
-	<h1>All Pins</h1>
+	<h1>
+		{{ pins|length }}
+		Pins</h1>
+	{% for pin in pins %}
+		<article>
+			<h2>{{ pin.title }}</h2>
+			<p>{{ pin.description }}</p>
+		</article>
+	{% endfor %}
 {% endblock %}
