@@ -6,6 +6,7 @@ use App\Entity\Traits\Timestampable;
 use App\Repository\PinRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PinRepository::class)]
 #[ORM\Table(name: 'pins')]
@@ -20,9 +21,13 @@ class Pin
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3)]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 10)]
     private ?string $description = null;
 
     public function getId(): ?int
