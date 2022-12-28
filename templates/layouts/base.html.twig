@@ -43,12 +43,8 @@
 	</head>
 	<body>
 		{% include "layouts/partials/_flash_message.html.twig" %}
-		<nav>
-			<ul>
-				<li><a href="{{path('app_home')}}">Home</a></li>
-				<li><a href="{{path('app_pins_create')}}">Create</a></li>
-			</ul>
-		</nav>
+		{% include "layouts/partials/_nav.html.twig" %}
+
 		{% block body %}{% endblock %}
 	</body>
 </html>
