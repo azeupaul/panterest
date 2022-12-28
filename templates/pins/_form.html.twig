@@ -1,4 +1,6 @@
 {{ form_start(form) }}
 {{ form_widget(form) }}
-<input type="submit" value="{{ submitButtonText|default('Create pin') }}" formnovalidate>
+<div class="d-grid gap-2">
+	<input class="btn btn-primary" type="submit" value="{{ submitButtonText|default('Create pin') }}" formnovalidate>
+</div>
 {{ form_end(form)}}
