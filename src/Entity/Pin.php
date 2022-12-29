@@ -37,6 +37,7 @@ class Pin
     private ?string $imageName = null;
 
     #[Vich\UploadableField(mapping: 'pins_images', fileNameProperty: 'imageName')]
+    #[Assert\Image(maxSize: '8M')]
     private ?File $imageFile = null;
 
     public function getId(): ?int
