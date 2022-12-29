@@ -36,7 +36,7 @@ class Pin
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageName = null;
 
-    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'imageName')]
+    #[Vich\UploadableField(mapping: 'pins_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
 
     public function getId(): ?int
