@@ -3,17 +3,23 @@
 {% block title 'Find all the best pins on earth!' %}
 
 {% block body %}
-	<h1>
-		{{ pluralize(pins|length, 'Pin') }}
-	</h1>
-	{% for pin in pins %}
-		<article>
-			<h2>
-				<a href="{{ path('app_pins_show', {id: pin.id})}}">{{ pin.title }}</a>
-			</h2>
-			<p>{{ pin.description | u.truncate(15, '...', false) }}</p>
-			<p>Submitted
-				{{ pin.createdAt | ago }}</p>
-		</article>
-	{% endfor %}
+	{% if pins|length > 0 %}
+		<h1 class="my-4 text-center text-muted">
+			{{ pluralize(pins|length, 'Pin') }}
+		</h1>
+		{% for pin in pins %}
+			<article>
+				<h2>
+					<a href="{{ path('app_pins_show', {id: pin.id})}}">{{ pin.title }}</a>
+				</h2>
+				<p>{{ pin.description | u.truncate(15, '...', false) }}</p>
+				<p>Submitted
+					{{ pin.createdAt | ago }}</p>
+			</article>
+		{% endfor %}
+	{% else %}
+		<p class="mt-4 fs-1 text-center">No Pins Yet.
+			<a href="{{ path('app_pins_create') }}">Be the first!</a>
+		</p>
+	{% endif %}
 {% endblock %}
