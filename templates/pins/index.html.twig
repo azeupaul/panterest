@@ -9,6 +9,7 @@
 		</h1>
 		{% for pin in pins %}
 			<article>
+				<img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('images/placeholder.jpg')) | imagine_filter('squared_thumbnail_medium') }}" alt="{{ pin.title }}">
 				<h2>
 					<a href="{{ path('app_pins_show', {id: pin.id})}}">{{ pin.title }}</a>
 				</h2>
